@@ -221,3 +221,11 @@ body
     color: #d17d00;
 }
 
+#error_text {
+   color: #FF0000;
+   text-align: center;
+}
+
+#success_text {
+    text-align: center;
+}

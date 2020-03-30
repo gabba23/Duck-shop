@@ -11,26 +11,26 @@
 
             if (isset($_GET['error'])) {
                 if ($_GET['error'] == "emptyfields") {
-                    echo '<p> Fill in all fields!</p>' ;
+                    echo '<p class="alert alert-danger" id="error_text"> Fill in all fields!</p>' ;
                 }
                 else if ($_GET['error'] == "invaliduidemail") {
-                    echo '<p> Invalid username and e-mail!</p>' ;
+                    echo '<p class="alert alert-danger" id="error_text"> Invalid username and e-mail!</p>' ;
                 }
                 else if ($_GET['error'] == "invaliduid") {
-                    echo '<p>Invalid username!</p>' ;
+                    echo '<p class="alert alert-danger" id="error_text">Invalid username!</p>' ;
                 }
                 else if ($_GET['error'] == "invalidmail") {
-                    echo '<p>Invalid e-mail!</p>' ;
+                    echo '<p class="alert alert-danger" id="error_text">Invalid e-mail!</p>' ;
                 }
                 else if ($_GET['error'] == "passwordcheck") {
-                    echo '<p>Your passwords do not match!</p>' ;
+                    echo '<p class="alert alert-danger" id="error_text">Your passwords do not match!</p>' ;
                 }
                 else if ($_GET['error'] == "usertaken") {
-                    echo '<p>Username is already taken!</p>' ;
+                    echo '<p class="alert alert-danger" id="error_text">Username is already taken!</p>' ;
                 }
             }
             else if ($_GET['signup'] == "success") {
-                echo '<p>Signup successful</p>' ;
+                echo '<p class="alert alert-success" id="success_text">Signup successful</p>' ;
             }
 
            ?>
