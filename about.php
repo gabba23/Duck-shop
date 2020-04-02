@@ -7,6 +7,7 @@ require "header.php";
 
 
 
+
         <div class="bg-light">
             <div class="container py-5">
               <div class="row h-100 align-items-center py-5">
@@ -26,16 +27,50 @@ require "header.php";
             <div class="container py-5">
               <div class="row align-items-center mb-5">
                 <div class="col-lg-6 order-2 order-lg-1">
+
+                <?php
+
+                include "./contact/error.php";
+            
+                ?>
                 <form method="post" action="./contact/sendmail.php">
+                <?php if (isset($wholeerror)) {
+                    echo $wholeerror;
+                }
+                ?>
                   <h3>Do you have a question? Get in touch with us by sending the form!</h3>
-                  First name: <input type="text" name="firstname"> <br>
-                  Last name: <input type="text" name="lastname"> <br>
-                  Email: <input type="text" name="email"> <br>
-                  Subject: <input type="text" name="subject"> <br>
+
+                  First name: <input type="text" name="firstname" value="<?php echo $_SESSION['firstname'];?>">
+                  <?php if (isset($nameerror)) {
+                      echo $nameerror;
+                  }
+                ?> <br>
+
+                  Last name: <input type="text" name="lastname" value="<?php echo $_SESSION['lastname'];?>">
+                  <?php if (isset($nameerror)) {
+                      echo $nameerror;
+                  }
+                  ?> <br>
+
+                  Email: <input type="text" name="email" value="<?php echo $_SESSION['email'];?>">
+                  <?php if (isset($mailerror)) {
+                      echo $mailerror;
+                  } elseif (isset($validerror)) {
+                      echo $validerror;
+                  }
+                  ?> <br>
+                  Subject: <input type="text" name="subject" value="<?php echo $_SESSION['subject'];?>">
+                  <?php if (isset($subjecterror)) {
+                      echo $subjecterror;
+                  }
+                  ?> <br>
                   Message: <br>
-                  <textarea name="message" rows="20" cols="50"></textarea>
-                  <br>
-                  <input type="submit">
+                  <textarea name="message" rows="20" cols="50" value="<?php echo $_SESSION['message'];?>"></textarea>
+                  <?php if (isset($messageerror)) {
+                    echo $messageerror;
+                }
+                ?> <br>
+                  <input type="submit" name="Submit" value="Submit">
                 </form>
 
 

@@ -1,29 +1,45 @@
 <?php
+require_once("./session_start.php");
+
 $subject = $_POST['subject'];
 $email = $_POST['email'];
 $message = $_POST['message'];
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
+
+
+if (isset($_POST['Submit'])) { 
+    $_SESSION['subject'] = $_POST['subject'];
+    $_SESSION['email'] = $_POST['email'];
+    $_SESSION['message'] = $_POST['message'];
+    $_SESSION['firstname'] = $_POST['firstname'];
+    $_SESSION['lastname'] = $_POST['lastname'];
+    };
+
+    
+
+
 $regexp = "/^[A-z0-9_-]+([.][A-z0-9_]+)*[@][A-z0-9_-]+([.][A-z0-9_]+)*[.][A-z]{2,4}$/";
 $regname = "/^[A-z,.-]+$/";
 
+
  
 if (!isset($_POST['email'])) {
-    header("Location: ./contact/error.php?erid=1");
+    header("Location: ../about.php?erid=1");
 } elseif (empty($email) || empty($subject) || empty($message) || empty($firstname) || empty($lastname)) {
-    header("Location: ./contact/error.php?erid=2");
+    header("Location: ../about.php?erid=2");
 } else {
     //if (!preg_match($regexp, $email)){
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        header("Location: ./contact/error.php?erid=3");
+        header("Location: ../about.php?erid=3");
         } elseif (strlen($message) <= 2) {
-            header("Location: ./contact/error.php?erid=5");
+            header("Location: ../about.php?erid=5");
         } elseif (strlen($subject) <= 2) {
-            header("Location: ./contact/error.php?erid=6");
+            header("Location: ../about.php?erid=6");
         }elseif (!preg_match($regname, $lastname)) {
-            header("Location: ./contact/error.php?erid=4");
+            header("Location: ../about.php?erid=4");
         } elseif (!preg_match($regname, $firstname)) {
-            header("Location: ./contact/error.php?erid=4");
+            header("Location: ../about.php?erid=4");
         } else {
             mail("olakurdelska@gmail.com",
                 $subject,
