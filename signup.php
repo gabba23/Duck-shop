@@ -37,7 +37,7 @@
            
         
 
-            <form action="includes/signup.inc.php" method="post"">
+            <form action="includes/signup.inc.php" method="post">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="well center-block">
