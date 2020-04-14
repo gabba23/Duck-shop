@@ -22,6 +22,8 @@ if (isset($_POST['Submit'])) {
 $regexp = "/^[A-z0-9_-]+([.][A-z0-9_]+)*[@][A-z0-9_-]+([.][A-z0-9_]+)*[.][A-z]{2,4}$/";
 $regname = "/^[A-z,.-]+$/";
 
+$to_email = "duckshop@aleksandrakurdelska.com";
+$mailHeader = "From: duckshop@aleksandrakurdelska.com";
 
  
 if (!isset($_POST['email'])) {
@@ -41,16 +43,15 @@ if (!isset($_POST['email'])) {
         } elseif (!preg_match($regname, $firstname)) {
             header("Location: ../about.php?erid=4");
         } else {
-            mail("olakurdelska@gmail.com",
+            mail($to_email,
                 $subject,
-                $message,
-                "From: $email",
-                "Name: $firstname, $lastname");
+                "Name: $firstname, $lastname" . "\r\n" . "Email: $email". "\r\n" . "Message: $message"  ,
+                [$mailHeader
+                ]);
             mail($email,
-                "Thank you for your email $subject",
-                $message,
-                "Name: $firstname, $lastname",
-                date("F j, Y, g:i a")
+                "Thank you for your email! $subject",
+                "Name: $firstname, $lastname" . "\r\n" . "Email: $email". "\r\n" . "Message: $message",
+                ["From: $to_email"]
         );
         header("Location: ./succes.php");
         }}
