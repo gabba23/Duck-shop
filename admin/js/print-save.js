@@ -1,14 +1,14 @@
 $(document).ready(function() {
     $("#pdfDownloader").click(function() {
   
-      var doc = new jsPDF({
-        unit: 'px',
-      });
+      var doc = new jsPDF('p','mm',[210, 297]);
+
+      doc.setFont("helvetica");
   
-      doc.addHTML($('#page-wrap').get(0), 15, 15, {
-        'width': 800
+      doc.addHTML($('#pdfSheet').get(0), 15, 15, {
+
       }, function (dispose) {
-      doc.save('thisMotion.pdf');
+      doc.save('invoice.pdf');
       });
     });
   
