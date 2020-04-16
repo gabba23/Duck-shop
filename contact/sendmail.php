@@ -53,5 +53,6 @@ if (!isset($_POST['email'])) {
                 "Name: $firstname, $lastname" . "\r\n" . "Email: $email". "\r\n" . "Message: $message",
                 ["From: $to_email"]
         );
-        header("Location: ./succes.php");
+        header("Location: ../about.php?suc=1");
+        session_destroy();
         }}

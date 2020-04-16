@@ -31,6 +31,7 @@ require "header.php";
                 <?php
 
                 include "./contact/error.php";
+                include "./contact/success.php";
             
                 ?>
                 <form method="post" action="./contact/sendmail.php">
