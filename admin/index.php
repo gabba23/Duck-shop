@@ -131,9 +131,10 @@
 
 <style>
 
-	#pdfSheet {
-		background-color: white;
+#pdfSheet {
+	background-color: white;
 	}
+    
 #image {
     height: 100px;
     width: 100px;

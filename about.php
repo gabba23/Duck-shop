@@ -2,7 +2,6 @@
     <?php
 
 require "header.php";
-
 ?>
 
 
@@ -32,7 +31,23 @@ require "header.php";
 
                 include "./contact/error.php";
                 include "./contact/success.php";
-            
+
+                if (!isset($_SESSION['firstname'])) {
+                    $_SESSION['firstname'] = " ";
+                }
+                if (!isset($_SESSION['lastname'])) {
+                    $_SESSION['lastname'] = " ";
+                }
+                if (!isset($_SESSION['email'])) {
+                    $_SESSION['email'] = " ";
+                }
+                if (!isset($_SESSION['subject'])) {
+                    $_SESSION['subject'] = " ";
+                }
+                if (!isset($_SESSION['message'])) {
+                    $_SESSION['message'] = " ";
+                }
+
                 ?>
                     <form method="post" action="./contact/sendmail.php">
                         <?php if (isset($wholeerror)) {
@@ -85,7 +100,7 @@ require "header.php";
                         <div class="form-group">
                             <label>Message:</label>
                             <textarea name="message" rows="20" cols="50" class="form-control"
-                                value="<?php echo $_SESSION['message'];?>"></textarea>
+                                value=""><?php echo $_SESSION['message'];?></textarea>
                             <?php if (isset($messageerror)) {
                     echo $messageerror;
                 }

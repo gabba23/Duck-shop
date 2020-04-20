@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $("#pdfDownloader").click(function() {
   
-      var doc = new jsPDF('p','mm',[210, 297]);
+      var doc = new jsPDF('l','mm',[297, 210]);
 
       doc.setFont("helvetica");
   

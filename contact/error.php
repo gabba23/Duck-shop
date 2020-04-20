@@ -1,8 +1,11 @@
 <?php
 
 
-
-$erid = $_GET['erid'];
+if (!isset ($_GET['erid'])) {
+    $erid = 0;
+} else {
+    $erid = $_GET['erid'];
+}
 
 
 if ($erid == 1) {
