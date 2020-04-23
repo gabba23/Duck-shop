@@ -27,6 +27,54 @@ require '../includes/dbh.inc.php';
         </div>
     </div>
 
+
+    <?php 
+
+
+$sql = "SELECT ProductName, Price, Descrption, ProductPhoto FROM Product";
+$result = $conn->query($sql);
+
+$row = $result->fetch_assoc();
+?>
+
+
+
+    <div class="col">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+                <?php     foreach ($result as $things) { ?>
+                <div class="card">
+                    <img class="card-img-top"
+                        src="data:image/jpeg;base64,<?php echo base64_encode($things['ProductPhoto']); ?>"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <?php
+                        echo $things["ProductName"];
+                        ?>
+                        </a></h4>
+                        <p class="card-text">
+                            <?php
+                        echo $things["Descrption"];
+                        ?>
+                        </p>
+                        <div class="row">
+                            <div class="col">
+                                <p class="btn btn-danger btn-block">5.00 $</p>
+                            </div>
+                            <div class="col">
+                                <a href="#" class="btn btn-success btn-block">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php 
+}?>
+            </div>
+
+        </div>
+    </div>
+
+
 </body>
 
 </html>

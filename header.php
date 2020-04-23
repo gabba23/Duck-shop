@@ -68,7 +68,7 @@
                             <a class="nav-link" href="category.html">Categories <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="product.html">Product</a>
+                            <a class="nav-link" href="productpage.php">Product</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="cart.php">Cart</a>
