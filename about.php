@@ -4,7 +4,11 @@
 require "header.php";
 ?>
 
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
     <div class="bg-light">
         <div class="container py-2">
             <div class="row h-auto align-items-center py-5">
@@ -28,7 +32,7 @@ require "header.php";
                 <div class="col-lg-6 order-2 order-lg-1">
 
                     <?php
-
+                require "./contact/check.php";
                 include "./contact/error.php";
                 include "./contact/success.php";
 
@@ -106,6 +110,7 @@ require "header.php";
                 }
                 ?> <br>
                         </div>
+                        <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
                         <button type="submit" name="Submit" value="Submit" class="btn btn-outline-info">Submit</button>
                         
                     </form>
