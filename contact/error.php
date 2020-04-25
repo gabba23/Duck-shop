@@ -20,6 +20,8 @@ if ($erid == 1) {
     $messageerror = "Message has to be longer than 2 characters";
 } elseif ($erid == 6) {
     $subjecterror = "You need to provide subject";
+} elseif ($erid == 7) {
+    $subjecterror = "ReCaptcha not passed";
 } else {
     "We have a problem. Contact the Duck Shop directly";
 }

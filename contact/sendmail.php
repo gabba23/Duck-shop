@@ -25,6 +25,22 @@ $regname = "/^[A-z,.-]+$/";
 $to_email = "duckshop@aleksandrakurdelska.com";
 $mailHeader = "From: duckshop@aleksandrakurdelska.com";
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
+
+    // Build POST request:
+    $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+    $recaptcha_secret = '6LctBe4UAAAAAMdvBsTDdmD_k-2RSSKQmsK64xPt';
+    $recaptcha_response = $_POST['recaptcha_response'];
+
+    // Make and decode POST request:
+    $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
+    $recaptcha = json_decode($recaptcha);
+
+    // Take action based on the score returned:
+    
+
+}
+
  
 if (!isset($_POST['email'])) {
     header("Location: ../about.php?erid=1");
@@ -43,7 +59,8 @@ if (!isset($_POST['email'])) {
         } elseif (!preg_match($regname, $firstname)) {
             header("Location: ../about.php?erid=4");
         } else {
-            mail($to_email,
+            if ($recaptcha->score >= 0.5) {
+                mail($to_email,
                 $subject,
                 "Name: $firstname, $lastname" . "\r\n" . "Email: $email". "\r\n" . "Message: $message"  ,
                 [$mailHeader
@@ -53,6 +70,10 @@ if (!isset($_POST['email'])) {
                 "Name: $firstname, $lastname" . "\r\n" . "Email: $email". "\r\n" . "Message: $message",
                 ["From: $to_email"]
         );
+            } else {
+                header("Location: ../about.php?erid=7");
+            }
+            
         header("Location: ../about.php?suc=1");
         session_destroy();
         }}
