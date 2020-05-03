@@ -17,14 +17,6 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4 col-sm-12 col-12">
-                    <div class="btn-group">
-                        <button class="btn border dropdown-toggle my-md-4 my-2 text-black" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DKK</button>
-                        <div class="dropdown-menu">
-                            <a href="" class="dropdown-item light-gray">EUR</a>
-                            <a href="" class="dropdown-item light-gray">USD</a>
-                            <a href="" class="dropdown-item light-gray">RUB</a>
-                        </div>
-                    </div>
                 </div>
                 <div class="col-md-4 col-12 text-center">
                     <h2 class="my-md-3 site-title text-white"><a href="index.php"><img src="./assets/images/Logo1.png" class="card-img-top" style="height: 200px; width: 200px;" alt="..." ></a></h2>
@@ -60,7 +52,7 @@
                 </button>
         
                 <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
-                    <ul class="navbar-nav m-auto">
+                    <ul class="navbar-nav mr-auto float-left">
                         <li class="nav-item">
                             <a class="nav-link" href="index.php">Home</a>
                         </li>
@@ -87,9 +79,9 @@
                                 </button>
                             </div>
                         </div>
-                        <a class="btn btn-success btn-sm ml-3" href="cart.html">
+                        <a class="btn btn-success btn-sm ml-3" href="cart.php">
                             <i class="fa fa-shopping-cart"></i> Cart
-                            <span class="badge badge-light">3</span>
+                            <span class="badge badge-light"></span>
                         </a>
                     </form>
                 </div>

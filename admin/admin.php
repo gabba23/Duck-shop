@@ -1,6 +1,3 @@
-<?php 
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +18,7 @@
         <a href="../index.php"><button type="button" class="btn btn-outline-dark">Come back to main page</button></a>
         <ul class="nav justify-content-center pt-3">
             <li class="nav-item">
-                <a class="nav-link active" href="editProducts.php">Products</a>
+                <a class="nav-link active" href="manageProducts.php">Manage products</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="orders.php">Orders</a>

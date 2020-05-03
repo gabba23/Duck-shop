@@ -1,42 +1,3 @@
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="./assets/images/duck_1.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="./assets/images/duck_2.jpg" class="d-block w-100" alt="...">
-
-        </div>
-
-        <div class="carousel-item">
-            <img src="./assets/images/duck_3.png" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="./assets/images/duck_4.jpg" class="d-block w-100" alt="...">
-        </div>
-    </div>
-    <a class="carousel-control-prev light-gray" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next light-gray" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
-
-<section class="jumbotron text-center">
-    <div class="container">
-        <h1 class="jumbotron-heading">Rubber ducks</h1>
-        <p class="lead text-muted mb-0">Get our ducks now, because they are great!</p>
-    </div>
-</section>
 <div class="container">
     <div class="row">
         <div class="col">
@@ -52,12 +13,8 @@
 </div>
 
 <?php 
-require "includes/dbh.inc.php";
+require "cart/index.php"
 
-$sql = "SELECT ProductName, Price, Descrption, ProductPhoto FROM Product";
-$result = $conn->query($sql);
-
-$row = $result->fetch_assoc();
 ?>
 
 <div class="container">
@@ -90,59 +47,52 @@ $row = $result->fetch_assoc();
 
         <div class="col">
             <div class="row">
+
+                <?php     $product_array = $db_handle->runQuery("SELECT * FROM Product ORDER BY ProductID ASC");
+	if (!empty($product_array)) { 
+		foreach($product_array as $aNumber=> $value){
+    ?>
                 <div class="col-12 col-md-6 col-lg-4">
-                <?php     foreach ($result as $things) { ?>
                     <div class="card">
-                        <img class="card-img-top" src="data:image/jpeg;base64,<?php echo base64_encode($things['ProductPhoto']); ?>" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title"><a href="product.html" title="View Product">
-                                    <?php
-                        echo $things["ProductName"];
-                        ?>
-                                </a></h4>
-                            <p class="card-text">
-                                <?php
-                        echo $things["Descrption"];
-                        ?>
-                            </p>
-                            <div class="row">
-                                <div class="col">
-                                    <p class="btn btn-danger btn-block">5.00 $</p>
+                        <form method="post"
+                            action="index.php?action=add&code=<?php echo $product_array[$aNumber]["code"]; ?>">
+                            <img class="card-img-top" height="200px" width="auto"
+                                src="data:image/jpeg;base64,<?php echo base64_encode($product_array[$aNumber]["ProductPhoto"]); ?>">
+                            <div class="card-body">
+                                <h4 class="card-title"><a href="product.html" title="View Product">
+                                        <?php echo $product_array[$aNumber]["ProductName"]; ?>
+                                    </a></h4>
+                                <p class="card-text">
+                                    <?php echo $product_array[$aNumber]["Descrption"]; ?>
+                                </p>
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="">
+                                            <?php echo $product_array[$aNumber]["Price"]." DKK"; ?></p>
+                                    </div>
                                 </div>
-                                <div class="col">
-                                    <a href="#" class="btn btn-success btn-block">Add to cart</a>
+                                    <div class="row" >
+                                    <div class="col">
+                                        <div>
+                                            <input type="number" name="quantity" value="1" size="2" min="1" max="20" />
+                                            <input type="submit" value="Add to cart" class="addBtn btn btn-outline-success float-right" /></div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
-                    <?php 
-}?>
+
                 </div>
+                <?php 
+}
+ }?>
 
             </div>
         </div>
     </div>
 </div>
-<div class="col-12">
-    <nav aria-label="...">
-        <ul class="pagination">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active">
-                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
-</div>
 </div>
 </div>
 
 </div>
 </div>
-        
