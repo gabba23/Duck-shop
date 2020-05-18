@@ -72,12 +72,11 @@ $row = $result->fetch_assoc();
                         </p>
                         <div class="row">
                             <div class="col">
-                                <btn class="btn btn-outline-danger"><a href="action/deleteProduct.php?id=<?php echo $things['ProductID']; ?>">
-                                    Delete</a></btn>
+                                <a href="action/deleteProduct.php?id=<?php echo $things['ProductID']; ?>"><btn class="btn btn-outline-danger">
+                                    Delete</btn></a>
                             </div>
                             <div class="col">
-                                <btn data-toggle="modal" data-target="#editModal" class="btn btn-outline-warning">Edit
-                                </btn>
+                                <a href="action/editProduct.php?id=<?php echo $things['ProductID']; ?>"><btn class="btn btn-outline-warning">Edit</btn></a>
                             </div>
                         </div>
                     </div>
@@ -85,8 +84,6 @@ $row = $result->fetch_assoc();
             </div>
             <?php 
 }?>
-
-
         </div>
     </div>
 
@@ -135,28 +132,6 @@ $row = $result->fetch_assoc();
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 
-            </div>
-        </div>
-    </div>
-
-    <!-- EDIT PRODUCT MODAL -->
-    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit details</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
             </div>
         </div>
     </div>

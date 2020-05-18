@@ -26,6 +26,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="invoice.php">Invoice</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="companyInfo.php">Company information</a>
+            </li>
         </ul>
     </section>
 
