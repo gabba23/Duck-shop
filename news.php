@@ -19,7 +19,7 @@ if (mysqli_num_rows($result) > 0) {
                 
                         </a>
                         <div class="media-body">
-                            <h4 class="media-heading">Headline</h4>
+                            
                             
                             <h1>'. $row['Article']. '</h1>
                             <ul class="list-inline list-unstyled">

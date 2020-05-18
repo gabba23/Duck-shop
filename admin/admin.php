@@ -26,6 +26,15 @@
             <li class="nav-item">
                 <a class="nav-link" href="invoice.php">Invoice</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="slider.php">Image slider</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="newsa.php">News</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="companyInfo.php">Company information</a>
+            </li>
         </ul>
     </section>
 
