@@ -15,22 +15,7 @@ require "cart/index.php"
             <div class="col-md-12">
 
 
-                <?php
 
-                $sql = "select * from product where ProductID=? ORDER BY discount DESC";
-
-                foreach($datadisc as $rowsdisc) {
-
-                    if($subtl < $rowsdisc['disc_amt'])
-                        continue;
-
-                    echo $subtl."*".$rowsdisc['disc_percntge']."/"."100";
-                    $subtldisc = ($subtl*$rowsdisc['disc_percntge'])/100;
-                    $subtl = $subtl-$subtldisc;
-                    break;
-
-                }
-                ?>>
 
                 <!-- Carousel items -->
                 <div class="carousel-inner">
