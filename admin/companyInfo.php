@@ -1,5 +1,6 @@
 <?php
 require "admin.php";
+include "action/messages.php"
 ?>
 
 <!DOCTYPE html>
@@ -15,36 +16,38 @@ require "admin.php";
     <section class="text-center">
         <h3>This is a page where you can manage company information.</h3>
     </section>
-    <div class="d-flex">
-<section class="col-2">
-    <form>
-  <div class="form-group">
-    <label>Opening hour:</label>
-    <input type="time" class="form-control">
-    <label>Closing hour:</label>
-    <input type="time" class="form-control">
-      </div>
-  <button name="saveTime" type="submit" class="btn btn-primary">Submit</button>
-</form>
-</section>
+
+
+
+    <div class="d-flex justify-content-center">
 
 <section class="col-2">
-    <form>
+    <form method="post" action="action/descriptionEdit.php" enctype="multipart/form-data">
   <div class="form-group">
     <label>Description:</label>
-    <input type="text" class="form-control">
+    <textarea name="descriptionEdit" class="form-control" rows="3"></textarea>
       </div>
-  <button name="saveDesc" type="submit" class="btn btn-primary">Submit</button>
+  <button name="descriptionEditButton" type="submit" class="btn btn-outline-info">Submit</button>
 </form>
 </section>
 
 <section class="col-2">
-    <form>
+    <form  method="post" action="action/numberEdit.php" enctype="multipart/form-data">
   <div class="form-group">
     <label>Phone number:</label>
-    <input type="number" class="form-control">
+    <input type="text" name="numberEdit" class="form-control">
       </div>
-  <button name="saveDesc" type="submit" class="btn btn-primary">Submit</button>
+  <button name="numberEditButton" type="submit" class="btn btn-outline-info">Submit</button>
+</form>
+</section>
+
+<section class="col-2">
+    <form method="post" action="action/photoEdit.php" enctype="multipart/form-data">
+  <div class="form-group">
+    <label>Photo for daily special</label>
+    <input type="file" name="photoEdit" class="form-control">
+      </div>
+  <button name="photoEditButton" type="submit" class="btn btn-outline-info">Submit</button>
 </form>
 </section>
 

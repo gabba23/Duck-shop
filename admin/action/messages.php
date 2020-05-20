@@ -34,4 +34,16 @@ if ($edit == 1) {
 } elseif ($edit == 2) {
     echo "Product edits on the way";
 }
+
+if (!isset ($_GET['desc'])) {
+    $desc = 0;
+} else {
+    $desc = $_GET['desc'];
+}
+
+if ($desc == 1) {
+    echo "Description edited";
+} elseif ($desc == 2) {
+    echo "Product edits on the way";
+}
 ?>

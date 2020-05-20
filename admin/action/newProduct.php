@@ -11,6 +11,6 @@ $productPhoto = addslashes(file_get_contents($_FILES['image']['tmp_name']));
 
 if (isset($_POST['submit'])) {
   $query = $conn->prepare("INSERT INTO Product (`ProductName`, `Descrption`, `Price`, `code`, `ProductPhoto`) VALUES ('$productName', '$productDescription', '$productPrice', '$productCode', '$productPhoto')");
-$query->execute();
+  $query->execute();
 header("Location: ../manageProducts.php?added=1");
 } 
