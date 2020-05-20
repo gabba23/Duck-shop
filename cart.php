@@ -1,12 +1,12 @@
 <?php
 
 require "header.php";
-require "cart/index.php";
+    require "cart/index.php";
 
 ?>
 
 <main>
-    <div class="pb-5">
+    <div class="pb-1">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
@@ -16,18 +16,18 @@ require "cart/index.php";
                         <table class="table">
                             <thead>
 
-                                <?php	
-                            if(isset($_SESSION["cart_item"])){
-                                $item_total = 0;	
-                            foreach ($_SESSION["cart_item"] as $item){
-                                ?>
-                                
+                                <?php
+if (isset($_SESSION["cart_item"])) {
+    $item_total = 0;
+    foreach ($_SESSION["cart_item"] as $item) {
+        ?>
+
                                 <tr>
                                     <th scope="col" class="border-0">
                                         <div class="p-2 px-3 text-uppercase"><?php echo $item["name"]; ?></div>
                                     </th>
                                     <th scope="col" class="border-0">
-                                        <div class="py-2 text-uppercase"><?php echo $item["price"]." DKK"; ?></div>
+                                        <div class="py-2 text-uppercase"><?php echo $item["price"] . " DKK"; ?></div>
                                     </th>
                                     <th scope="col" class="border-0">
                                         <div class="py-2 text-uppercase"><?php echo $item["quantity"]; ?></div>
@@ -38,9 +38,9 @@ require "cart/index.php";
                                 </tr>
 
                                 <?php
-                                $item_total += ($item["price"]*$item["quantity"]);
-                                }
-                                ?>
+$item_total += ($item["price"] * $item["quantity"]);
+    }
+    ?>
 
                             </thead>
                             <tr>
@@ -50,16 +50,10 @@ require "cart/index.php";
                                             <div class="shopping-cart">
                                                 <div id="shopping-cart">
                                                     <table cellpadding="10" cellspacing="1">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td colspan="5" align=right><strong>Total:</strong>
-                                                                    <?php echo $item_total." DKK"; ?></td>
-                                                            </tr>
-                                                        </tbody>
                                                     </table>
                                                     <?php
-                                                        }
-                                                    ?>
+}
+?>
                                                 </div>
                                             </div>
                                         </div>
@@ -68,17 +62,8 @@ require "cart/index.php";
                                 </div>
                     </div>
                 </div>
-
-                <div class="row py-5 p-4 bg-white rounded shadow-sm">
+                <div class="row p-4 bg-white rounded shadow-sm">
                     <div class="col-lg-6">
-                      
-                        <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Instructions for
-                            seller</div>
-                        <div class="p-4">
-                            <p class="font-italic mb-4">If you have some information for the seller you can leave them
-                                in the box below</p>
-                            <textarea name="" cols="30" rows="2" class="form-control"></textarea>
-                        </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary
@@ -89,14 +74,14 @@ require "cart/index.php";
                             <ul class="list-unstyled mb-4">
                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong
                                         class="text-muted">Order Subtotal </strong><strong>
-                                        <?php echo $item_total." DKK"; ?></strong></li>
+                                        <?php echo $item_total . " DKK"; ?></strong></li>
                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong
                                         class="text-muted">Shipping and handling</strong><strong>FREE</strong></li>
                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong
                                         class="text-muted">Total</strong>
-                                    <h5 class="font-weight-bold">DKK <?php echo $item_total." DKK"; ?></h5>
+                                    <h5 class="font-weight-bold">DKK <?php echo $item_total . " DKK"; ?></h5>
                                 </li>
-                            </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+                            </ul><a href="checkout.php" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
                         </div>
                     </div>
                 </div>
