@@ -24,8 +24,8 @@ $result = $conn->query("SELECT image_path FROM slider");
 ?>
 
 
-<div class="container-fluid" >
-    <div class="row justify-content-center ">
+<div class="container-fluid pl-0 pr-0" >
+    <div class="row justify-content-center">
         <div class="col-lg-12"  >
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->

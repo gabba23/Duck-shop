@@ -47,7 +47,7 @@ require "includes/dbh.inc.php";
                         <h4>  Change your information here! </h4>
 
 
-                        <form>
+                        <form action="">
                             <div class="form-row">
 
                                 <div class="form-group col-md-6">

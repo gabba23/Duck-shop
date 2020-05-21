@@ -21,30 +21,6 @@ require "cart/index.php"
 
     <div class="row">
 
-        <div class="col-12 col-sm-3">
-            <div class="card bg-light mb-3">
-                <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> Categories
-                </div>
-                <ul class="list-group category_block">
-                    <li class="list-group-item"><a href="category.html">Cras justo odio</a></li>
-                    <li class="list-group-item"><a href="category.html">Dapibus ac facilisis in</a></li>
-                    <li class="list-group-item"><a href="category.html">Morbi leo risus</a></li>
-                    <li class="list-group-item"><a href="category.html">Porta ac consectetur ac</a></li>
-                    <li class="list-group-item"><a href="category.html">Vestibulum at eros</a></li>
-                </ul>
-            </div>
-            <div class="card bg-light mb-3">
-                <div class="card-header bg-success text-white text-uppercase">Last product</div>
-                <div class="card-body">
-                    <img class="img-fluid" src="./assets/images/duck_3.png" />
-                    <h5 class="card-title">Product title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <p class="bloc_left_price">3.00 $</p>
-                </div>
-            </div>
-        </div>
-
         <div class="col">
             <div class="row">
 
@@ -56,7 +32,7 @@ require "cart/index.php"
                     <div class="card">
                         <form method="post"
                             action="index.php?action=add&code=<?php echo $product_array[$aNumber]["code"]; ?>">
-                            <img class="card-img-top" height="200px" width="auto"
+                            <img class="card-img-top"
                                 src="data:image/jpeg;base64,<?php echo base64_encode($product_array[$aNumber]["ProductPhoto"]); ?>">
                             <div class="card-body">
                                 <h4 class="card-title"><a href="product.html" title="View Product">
