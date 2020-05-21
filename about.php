@@ -14,8 +14,14 @@ require "header.php";
             <div class="row h-auto align-items-center py-5">
                 <div class="col-lg-6">
                     <h1 class="display-4">Best ducks, only in Mother Duckin Shop!</h1>
-                    <p class="lead text-muted mb-0">Welcome to our webshop! We are here to offer you the best rubber
-                        duck on the internet.</p>
+                    <p class="lead text-muted mb-0"> <?php
+       require "includes/dbh.inc.php";
+
+      $query = "SELECT About FROM company";
+      $result = $conn->query($query); 
+      $row = $result->fetch_assoc();
+      echo $row['About'];
+       ?></p>
 
                     <u></u></a>
                     </p>

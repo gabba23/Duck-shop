@@ -14,7 +14,7 @@ switch($_GET["action"]) {
 			    'name'=>$productByCode[0]["ProductName"],
                 'code'=>$productByCode[0]["code"],
                 'quantity'=>$_POST["quantity"],
-                'price'=>$productByCode[0]["Price"]));
+				'price'=>$productByCode[0]["Price"]));
 			
 			if(!empty($_SESSION["cart_item"])) {
 				if(in_array($productByCode[0]["code"],array_keys($_SESSION["cart_item"]))) {
@@ -28,10 +28,12 @@ switch($_GET["action"]) {
 					}
 				} else {
 					$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
+				
 				}
 			} else {
 				$_SESSION["cart_item"] = $itemArray;
 			}
+			
 		}
 	break;
 //Remove item from cart

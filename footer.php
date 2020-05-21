@@ -6,7 +6,16 @@
       <!--headin5_amrc-->
       <p class="mb10">You can shop only on our awesome website, but paid orders can be picked up in our HQ.</p>
       <p><i class="fa fa-location-arrow"></i> Duck Street 1, Duck City, Ducking Land</p>
-      <p><i class="fa fa-phone"></i> 11111111</p>
+      <p><i class="fa fa-phone"></i>
+       <?php
+       require "includes/dbh.inc.php";
+
+      $query = "SELECT ContactNumber FROM company";
+      $result = $conn->query($query); 
+      $row = $result->fetch_assoc();
+      echo $row['ContactNumber'];
+       ?>
+      </p>
       <p><i class="fa fa fa-envelope"></i> duckshop@aleksandrakurdelska.com </p> 
       </div>
       
