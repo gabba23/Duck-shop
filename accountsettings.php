@@ -104,7 +104,7 @@ require "includes/dbh.inc.php";
             $sessions = $_SESSION['userId'];
 
             // $query = $conn->prepare("UPDATE users SET `FirstName`='$FirstName', `LastName`='$LastName', `PhoneNumber`='$PhoneNumber', `Street`='$Street', `City`='$City', 'Country'='$Country' WHERE id='$_SESSION[userId]'");
-            $query = $conn->prepare("UPDATE users SET `FirstName`='$FirstName', `LastName`='$LastName', `PhoneNumber`='$PhoneNumber', `Street`='$Street', `City`='$City', `Country`='$Country' WHERE UserID = $editID");
+            $query = $conn->prepare("UPDATE Users SET `FirstName`='$FirstName', `LastName`='$LastName', `PhoneNumber`='$PhoneNumber', `Street`='$Street', `City`='$City', `Country`='$Country' WHERE UserID = $editID");
             $query->execute();
 
 

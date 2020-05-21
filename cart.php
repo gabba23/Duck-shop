@@ -19,7 +19,7 @@ require "header.php";
                                 <?php
 if (isset($_SESSION["cart_item"])) {
     $item_total = 0;
-    foreach ($_SESSION["cart_item"] as $item) {
+    foreach ($_SESSION["cart_item"] as $item) { 
         ?>
 
                                 <tr>

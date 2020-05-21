@@ -3,7 +3,7 @@
 require "includes/dbh.inc.php";
 
 
-$sql = "SELECT NewsID, Article, PhotoNews, NewsDate FROM news LIMIT 1";
+$sql = "SELECT NewsID, Article, PhotoNews, NewsDate FROM News LIMIT 1";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {

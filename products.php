@@ -29,11 +29,11 @@ require "cart/index.php"
 		foreach($product_array as $aNumber=> $value){
     ?>
                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card">
+                    <div class="card h-20">
                         <form method="post"
                             action="index.php?action=add&code=<?php echo $product_array[$aNumber]["code"]; ?>">
                             <img class="card-img-top"
-                                src="data:image/jpeg;base64,<?php echo base64_encode($product_array[$aNumber]["ProductPhoto"]); ?>">
+                                src="data:image/jpeg;base64,<?php echo base64_encode($product_array[$aNumber]["ProductPhoto"]); ?> " class="img-thumbnail">
                             <div class="card-body">
                                 <h4 class="card-title"><a href="product.html" title="View Product">
                                         <?php echo $product_array[$aNumber]["ProductName"]; ?>

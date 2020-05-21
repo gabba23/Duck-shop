@@ -22,47 +22,57 @@ require "cart/index.php";
     <h2>Checkout form</h2>
     <hr>
   </div>
-  <?php
-if (isset($_SESSION["cart_item"])) {
-    $item_total = 0;
-    foreach ($_SESSION["cart_item"] as $item) {
-        ?>
+
   <div class="row">
     <div class="col-md-4 order-md-2 mb-4">
       <h4 class="d-flex justify-content-between align-items-center mb-3">
         <span class="text-muted">Your cart</span>
-        <span class="badge badge-secondary badge-pill"><?php echo $item["quantity"]; ?></span>
+        <!-- <span class="badge badge-secondary badge-pill"><?php echo $item["quantity"]; ?></span> -->
       </h4>
       <ul class="list-group mb-3">
+      <?php
+if (isset($_SESSION["cart_item"])) {
+    $item_total = 0;
+    foreach ($_SESSION["cart_item"] as $item) {
+        ?>
         <li class="list-group-item d-flex justify-content-between lh-condensed">
           <div>
             <h6 class="my-0"><?php echo $item["name"]; ?></h6>
           </div>
+          <span class="text-muted"> <?php echo $item["quantity"]; ?></span>
+         
           <span class="text-muted"><?php echo $item["price"] . " DKK"; ?></span>
-        </li>
+        </li><?php  $item_total += ($item["price"] * $item["quantity"]);} ?>
         <li class="list-group-item d-flex justify-content-between">
           <span>Total:</span>
-          <strong><?php $item_total += ($item["price"] * $item["quantity"]);
-          
-    }echo $item_total." DKK";}?> </strong>
+          <strong><?php echo $item_total . " DKK" ?> </strong>
         </li>
       </ul>
-
+    <?php } ?>  
     </div>
+    <?php
+      require "includes/dbh.inc.php";
+      $currentUser = $_SESSION['userUid'];
+      $query = ("SELECT PhoneNumber, Email, FirstName, LastName, Street, City, Country FROM Users WHERE `Username` = '$currentUser'");
+      $result = $conn->query($query); 
+      $row = $result->fetch_assoc();
+       ?>
+
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3">Billing address</h4>
-      <form class="needs-validation" novalidate>
+      <h6 class="mb-3">Same as the account, you can change it in settings</h6>
+      <form action="includes/checkdatabase.php" class="needs-validation" novalidate>
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">First name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+            <input type="text" class="form-control" id="firstName" value="<?php echo $row['FirstName'] ?>" value="" disabled>
             <div class="invalid-feedback">
               Valid first name is required.
             </div>
           </div>
           <div class="col-md-6 mb-3">
             <label for="lastName">Last name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+            <input type="text" class="form-control" id="lastName" value="<?php echo $row['LastName'] ?>" value="" disabled>
             <div class="invalid-feedback">
               Valid last name is required.
             </div>
@@ -71,7 +81,7 @@ if (isset($_SESSION["cart_item"])) {
 
         <div class="mb-3">
           <label for="email">Email <span class="text-muted"></span></label>
-          <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+          <input type="email" class="form-control" id="email" placeholder="" value="<?php echo $row['Email'] ?>" disabled>
           <div class="invalid-feedback">
             Please enter a valid email address for shipping updates.
           </div>
@@ -79,7 +89,7 @@ if (isset($_SESSION["cart_item"])) {
 
         <div class="mb-3">
           <label for="address">Address</label>
-          <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+          <input type="text" class="form-control" id="address" aria-valuemax="<?php echo $row['Street'] ?>" disabled>
           <div class="invalid-feedback">
             Please enter your shipping address.
           </div>
@@ -87,13 +97,13 @@ if (isset($_SESSION["cart_item"])) {
 
         <div class="mb-3">
           <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-          <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+          <input type="text" class="form-control" id="address2" placeholder="Apartment or suite" disabled>
         </div>
 
         <div class="row">
           <div class="col-md-5 mb-3">
             <label for="country">Country</label>
-            <select class="custom-select d-block w-100" id="country" required>
+            <select class="custom-select d-block w-100" id="country" disabled>
               <option value="">Choose...</option>
               <option>Denmark</option>
               <option>Iceland</option>
@@ -105,10 +115,10 @@ if (isset($_SESSION["cart_item"])) {
             </div>
           </div>
           <div class="row-md-5 mb-3">
-            <label for="zip">Zip</label>
-            <input type="text" class="form-control" id="zip" placeholder="" required>
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" value="<?php echo $row['City'] ?>" disabled>
             <div class="invalid-feedback">
-              Zip code required.
+              City required.
             </div>
           </div>
         </div>
@@ -149,14 +159,14 @@ if (isset($_SESSION["cart_item"])) {
           </div>
         </div>
         <div class="row">
-          <div class="col-md-3 mb-3">
+          <div class="col-md-3 mb-3 bg-transparent">
             <label for="cc-expiration">Expiration</label>
             <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
             <div class="invalid-feedback">
               Expiration date required
             </div>
           </div>
-          <div class="col-md-3 mb-3">
+          <div class="col-md-3 mb-3 bg-transparent">
             <label for="cc-cvv">CVV</label>
             <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
             <div class="invalid-feedback">
@@ -165,7 +175,7 @@ if (isset($_SESSION["cart_item"])) {
           </div>
         </div>
         <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+        <button class="btn btn-primary btn-lg btn-block mb-5" type="submit">Ready to buy</button>
       </form>
     </div>
   </div>
@@ -174,6 +184,7 @@ if (isset($_SESSION["cart_item"])) {
       <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
         <script src="form-validation.js"></script></body>
 </html>
-<?php
-require "footer.php"
+
+<?php 
+include "footer.php"
 ?>

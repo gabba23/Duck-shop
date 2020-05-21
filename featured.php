@@ -31,7 +31,7 @@ require "cart/index.php"
                                                 <!--Date-->
 
                                                 <!--Image-->
-                                                <figure> <img class="card-img-top" height="200px" width="auto"
+                                                <figure> <img class="card-img-top" class="img-thumbnail"
                                                               src="data:image/jpeg;base64,<?php echo base64_encode($product_array[$aNumber]["ProductPhoto"]); ?>"> </figure>
                                             </div>
                                             <div class="item-box-blog-body">
