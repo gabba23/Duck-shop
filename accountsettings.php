@@ -47,30 +47,35 @@ require "includes/dbh.inc.php";
                         <h4>  Change your information here! </h4>
 
 
-                        <form action="">
+                        <form action="" method="POST">
                             <div class="form-row">
+
 
                                 <div class="form-group col-md-6">
                                     <label for="firstName">First name</label>
-                                    <input type="text" class="form-control" id="FirstName" name="fname" placeholder="First name">
+                                    <input type="text" class="form-control" id="FirstName" name="FirstName" placeholder="First name">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="lastName">Last name</label>
-                                    <input type="text" class="form-control" id="LastName" name="lName" placeholder="Last name">
+                                    <input type="text" class="form-control" id="LastName" name="LastName" placeholder="Last name">
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label for="Street">Phone number</label>
+                                <input type="text" class="form-control" id="PhoneNumber" name="PhoneNumber" placeholder="52 34 32 85">
+                            </div>
+                            <div class="form-group">
                                 <label for="Street">Street</label>
-                                <input type="text" class="form-control" id="Street" name="street" placeholder="storegade 24">
+                                <input type="text" class="form-control" id="Street" name="Street" placeholder="storegade 24">
                             </div>
                             <div class="form-group">
                                 <label for="City">City</label>
-                                <input type="text" class="form-control" id="City" name="city" placeholder="Esbjerg">
+                                <input type="text" class="form-control" id="City" name="City" placeholder="Esbjerg">
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="Country">Country</label>
-                                    <input type="text" class="form-control" id="Country" name="country" >
+                                    <input type="text" class="form-control" id="Country" name="Country" >
                                 </div>
 
                             </div>
@@ -86,53 +91,25 @@ require "includes/dbh.inc.php";
 
         <?php
         require "includes/dbh.inc.php";
-        session_start();
-        //            if(isset($_POST['update']))
-        //            {
-        //              $userUpdate = "UPDATE 'users' SET FirstName='$_POST[FirstName]', LastName='$_POST[LastName]', Street='$_POST[Street]', City='$_POST[City]', Country='$_POST[Country] WHERE id='$_SESSION[userId]'";
-        //              mysqli_query($conn, $userUpdate);
-        //            }
-
-
-        /*   if (isset($_POST['update'])) {
-               $FirstName = $_POST['FirstName'];
-               $LastName = $_POST['LastName'];
-               $Street = $_POST['Street'];
-               $City = $_POST['City'];
-               $Country = $_POST['Country'];
-
-               $query = $conn->prepare("UPDATE 'users' SET FirstName='$_POST[FirstName]', LastName='$_POST[LastName]', Street='$_POST[Street]', City='$_POST[City]', Country='$_POST[Country] WHERE id='$_SESSION[userId]'");
-               $query->execute();
-
-           }*/
-
-        /* $db = mysqli_select_db($conn, 'users');
-
-         if(isset($_POST['update'])) {
-             $id = $_POST['userId'];
-
-             $query = "UPDATE 'users' SET FirstName='$_POST[FirstName]', LastName='$_POST[LastName]', Street='$_POST[Street]', City='$_POST[City]', Country='$_POST[Country]' WHERE id='$_SESSION[userId]'";
-             $query_run = mysqli_query($conn, $query);
-
-             if($query_run) {
-
-             }
-         }*/
 
 
         if (isset($_POST['update'])) {
-            $FirstName = $_POST['fname'];
-            $LastName = $_POST['lname'];
-            $Street = $_POST['street'];
-            $City = $_POST['city'];
-            $Country = $_POST['country'];
-            $sessions = $_SESSION['userUid'];
+            $editID = $_SESSION['userId'];
+            $FirstName = $_POST['FirstName'];
+            $LastName = $_POST['LastName'];
+            $PhoneNumber = $_POST['PhoneNumber'];
+            $Street = $_POST['Street'];
+            $City = $_POST['City'];
+            $Country = $_POST['Country'];
+            $sessions = $_SESSION['userId'];
 
-            $query = $conn->prepare("UPDATE users SET `FirstName`='$FirstName', `LastName`='$LastName', `Street`='$Street', `City`='$City', 'Country'='$Country' WHERE  username = '$sessions'");
+            // $query = $conn->prepare("UPDATE users SET `FirstName`='$FirstName', `LastName`='$LastName', `PhoneNumber`='$PhoneNumber', `Street`='$Street', `City`='$City', 'Country'='$Country' WHERE id='$_SESSION[userId]'");
+            $query = $conn->prepare("UPDATE users SET `FirstName`='$FirstName', `LastName`='$LastName', `PhoneNumber`='$PhoneNumber', `Street`='$Street', `City`='$City', `Country`='$Country' WHERE UserID = $editID");
             $query->execute();
 
+
         }else {
-            echo "ERROR";
+            echo 'it no work sir';
         }
         ?>
     </main>
