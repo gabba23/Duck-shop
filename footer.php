@@ -10,7 +10,7 @@
        <?php
        require "includes/dbh.inc.php";
 
-      $query = "SELECT ContactNumber FROM company";
+      $query = "SELECT ContactNumber FROM Company";
       $result = $conn->query($query); 
       $row = $result->fetch_assoc();
       echo $row['ContactNumber'];
@@ -34,13 +34,7 @@
       </ul>
       <!--footer_ul2_amrc ends here-->
       </div>
-      
-
-
-
-      <div class=" col-sm-2 col-sm  col-2 col">
-      <a href="./admin/admin.php"><h5 class="headin5_amrc col_white_amrc pt2">ADMIN</h5></a>
-      </div>
+    
 
 
 

@@ -40,7 +40,7 @@ require '../includes/dbh.inc.php';
 
 
 
-$sql = "SELECT NewsID, Article, PhotoNews, NewsDate FROM news";
+$sql = "SELECT NewsID, Article, PhotoNews, NewsDate FROM News";
 $result = $conn->query($sql);
 
 $row = $result->fetch_assoc();
@@ -71,10 +71,10 @@ $row = $result->fetch_assoc();
                             ?>
                         </p>
                         <div class="row">
-                            <div class="col">
-                                <btn class="btn btn-outline-danger"><a href="action/deleteProduct.php?id=<?php echo $things2['NewsID']; ?>">
+                           <!--  <div class="col">
+                                /<btn class="btn btn-outline-danger"><a href="action/deleteProduct.php?id=<?php echo $things2['NewsID']; ?>">
                                         Delete</a></btn>
-                            </div>
+                            </div> -->
                             <div class="col">
                                 <btn data-toggle="modal" data-target="#editModal" class="btn btn-outline-warning">Edit
                                 </btn>
@@ -116,7 +116,7 @@ $row = $result->fetch_assoc();
                         <input type="date" class="form-control" id="NewsDate" name="NewsDate"
                                placeholder="Awesome duck">
                     </div>
-                    <
+                    
                     <input type="file" name="photo">
                     <button type="submit" name="submitit" value="submit" class="btn btn-primary">Save changes</button>
                 </form>

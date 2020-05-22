@@ -1,4 +1,4 @@
-<main>
+
     <?php
 
 require "header.php";
@@ -14,17 +14,18 @@ require "header.php";
             <div class="row h-auto align-items-center py-5">
                 <div class="col-lg-6">
                     <h1 class="display-4">Best ducks, only in Mother Duckin Shop!</h1>
-                    <p class="lead text-muted mb-0"> <?php
+                    <p class="lead text-muted mb-0"> 
+                        <?php
        require "includes/dbh.inc.php";
 
-      $query = "SELECT About FROM company";
+      $query = "SELECT About FROM Company";
       $result = $conn->query($query); 
       $row = $result->fetch_assoc();
       echo $row['About'];
        ?></p>
 
-                    <u></u></a>
-                    </p>
+                    <u></u>
+                   
                 </div>
                 <div class="col-lg-6 d-none d-lg-block"><img src="./assets/images/Logo1.png" alt="" class="img-fluid">
                 </div>
@@ -218,9 +219,6 @@ require "header.php";
             </div>
         </div>
     </div>
-
-
-</main>
 
 
 

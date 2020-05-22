@@ -6,7 +6,7 @@ if (!isset ($_GET['added'])) {
 }
 
 if ($added == 1) {
-    echo "Product added";
+    echo "It's added";
 } elseif ($added == 2) {
     echo "Product not added. Error";
 }

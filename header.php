@@ -25,7 +25,7 @@
                     <?php
                            if (isset($_SESSION['userId'])) {
                             echo '<form action="includes/logout.inc.php" method="post">
-                                <button type="submit" name="logout-submit"  class="btn btn-danger">Logout</button>
+                                <button type="submit" name="logout-submit"  class="btn btn-outline-danger">Logout</button>
                                 <a href="userprofile.php">See profile</a>
                             </form>';
                         }
@@ -33,9 +33,9 @@
                             echo ' <form action="includes/login.inc.php" method="post">
                             <input type="text" name="mailuid" placeholder="Username/E-mail...">
                             <input type="password" name="pwd" placeholder="Password...">
-                            <button type="submit" name="login-submit" class="btn btn-success">Login</button>
+                            <button type="submit" name="login-submit" class="btn btn-outline-success">Login</button>
                             </form>
-                            <a href="signup.php"><button class="btn btn-warning btn-block">Sign up </button></a> ';
+                            <a href="signup.php"><button class="btn btn-outline-warning btn-block">Sign up </button></a> ';
                         }
                     ?>
                    
@@ -56,9 +56,6 @@
                     <ul class="navbar-nav mr-auto float-left">
                         <li class="nav-item">
                             <a class="nav-link" href="index.php">Home</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="category.html">Categories <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="productpage.php">Product</a>

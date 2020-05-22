@@ -9,8 +9,8 @@ $Photo = addslashes(file_get_contents($_FILES['photo']['tmp_name']));
 
 
 if (isset($_POST['submitit'])) {
-    $result = $conn->prepare("INSERT INTO News (`Article`, `NewsDate`,  `photo`) VALUES ('$Article', '$NewsDate', '$photo')");
+    $result = $conn->prepare("INSERT INTO News (`Article`, `NewsDate`,  `PhotoNews`) VALUES ('$Article', '$NewsDate', '$Photo')");
     $result->execute();
-
+    header("Location: ../manageProducts.php?added=1");
 }
 //}

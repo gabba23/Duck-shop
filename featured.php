@@ -47,11 +47,12 @@ require "cart/index.php"
                                                 </div>
                                                 <!--Text-->
                                                 <div class="item-box-blog-text">
-
+                                                <input type="submit" value="Add to cart" class="addBtn btn btn-outline-success float-right"></input>
                                                     <p><?php echo $product_array[$aNumber]["Price"]." DKK"; ?></p>
+                                                   
                                                 </div>
 
-                                                <input type="submit" value="Add to cart" class="addBtn btn btn-outline-success float-right" />
+                                                
 
 
                                                 <!--Read More Button-->
@@ -61,14 +62,13 @@ require "cart/index.php"
                                     <?php
                                 }
                             }?>
-                            <!--.row-->
                         </div>
-                        <!--.item-->
+
 
                     </div>
-                    <!--.carousel-inner-->
+
                 </div>
-                <!--.Carousel-->
+
             </div>
         </div>
     </div>

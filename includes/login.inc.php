@@ -28,7 +28,7 @@ if (isset($_POST['login-submit'])) {
                 if ($pwdCheck == false) {
                     header("Location: ../index.php?error=wrongpwd");
                     exit();
-                } else if ( $row['IsAdmin'] == 1 && $pwdCheck == true){
+                } else if ( $row['UserID'] == 15 && $pwdCheck == true){
                     header("Location: ../admin/admin.php");
                     exit();
                 }

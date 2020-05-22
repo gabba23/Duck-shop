@@ -3,7 +3,7 @@
 require "includes/dbh.inc.php";
 
 
-$sql = "SELECT NewsID, Article, PhotoNews, NewsDate FROM News LIMIT 1";
+$sql = "SELECT NewsID, Article, PhotoNews, NewsDate FROM News LIMIT 2";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -21,7 +21,7 @@ if (mysqli_num_rows($result) > 0) {
                         <div class="media-body">
                             
                             
-                            <h1>'. $row['Article']. '</h1>
+                            <h1 class="pb-2">'. $row['Article']. '</h1>
                             <ul class="list-inline list-unstyled">
                             <div style ="position: absolute; bottom: 0; left:0; margin-left: 250px; margin-bottom: 20px;">
                                 <li><span><i class="glyphicon glyphicon-calendar"></i> Date posted: '. $row['NewsDate']. ' </span></li>
